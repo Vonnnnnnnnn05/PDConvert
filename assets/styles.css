@@ -69,32 +69,66 @@ textarea#output {
 .batch-name { flex: 1; color: var(--text); font-size: 13px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .batch-status { font-size: 12px; color: var(--muted); }
 
-/* Mobile Responsive */
-@media (max-width: 768px) {
-  .container { padding: 16px; }
-  header h1 { font-size: 24px; }
-  .row { flex-direction: column; align-items: stretch; gap: 8px; }
-  .space-between { flex-direction: column; align-items: stretch; }
-  .btn { text-align: center; }
-  .uploader-inner { min-height: 180px; }
-  .placeholder .icon { font-size: 28px; }
-  .preview { max-height: 280px; }
-  textarea#output { min-height: 160px; }
-  .batch-controls { flex-direction: column; align-items: stretch; }
-  .batch-item { padding: 10px; }
-  .batch-thumb { width: 36px; height: 36px; }
-  .batch-name { font-size: 12px; }
+/* Mobile Responsive - Bootstrap-style */
+@media (max-width: 1200px) {
+  .container { max-width: 100%; padding: 20px; }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 992px) {
+  .container { padding: 18px; }
+  header h1 { font-size: 26px; }
+  .row { gap: 10px; }
+}
+
+@media (max-width: 768px) {
+  .container { padding: 16px; }
+  header h1 { font-size: 28px; }
+  .sub { font-size: 16px; }
+  .row { flex-direction: column; align-items: stretch; gap: 12px; }
+  .space-between { flex-direction: column; align-items: stretch; gap: 12px; }
+  .btn { text-align: center; padding: 14px 16px; font-size: 16px; }
+  .uploader-inner { min-height: 200px; }
+  .placeholder { font-size: 16px; line-height: 1.5; }
+  .placeholder .icon { font-size: 32px; }
+  .preview { max-height: 300px; }
+  textarea#output { min-height: 180px; font-size: 16px; line-height: 1.4; }
+  .batch-controls { flex-direction: column; align-items: stretch; gap: 12px; }
+  .batch-item { padding: 12px; }
+  .batch-name { font-size: 15px; }
+  .batch-status { font-size: 14px; }
+  label { font-size: 16px; }
+  select { font-size: 16px; padding: 12px; }
+  .hint { font-size: 14px; line-height: 1.4; }
+}
+
+@media (max-width: 576px) {
+  .container { padding: 14px; }
+  header h1 { font-size: 26px; }
+  .sub { font-size: 15px; }
+  .uploader { padding: 14px; }
+  .uploader-inner { min-height: 160px; }
+  .placeholder { font-size: 15px; }
+  .placeholder .icon { font-size: 28px; }
+  .btn { padding: 16px; font-size: 16px; font-weight: 500; }
+  .preview { max-height: 250px; }
+  textarea#output { min-height: 140px; font-size: 16px; padding: 14px; }
+  .batch-list { max-height: 260px; }
+  .batch-item { padding: 10px; }
+  .batch-thumb { width: 36px; height: 36px; }
+  .batch-name { font-size: 14px; }
+  .batch-status { font-size: 13px; }
+  select { font-size: 16px; padding: 14px; }
+  label { font-size: 15px; }
+  .hint { font-size: 13px; }
+}
+
+@media (max-width: 400px) {
   .container { padding: 12px; }
-  header h1 { font-size: 20px; }
-  .uploader { padding: 12px; }
-  .uploader-inner { min-height: 140px; }
+  header h1 { font-size: 24px; }
+  .sub { font-size: 14px; }
+  .btn { padding: 18px; font-size: 17px; }
+  textarea#output { font-size: 17px; }
+  select { font-size: 17px; padding: 16px; }
   .placeholder { font-size: 14px; }
-  .placeholder .icon { font-size: 24px; }
-  .btn { padding: 12px; font-size: 14px; }
-  .preview { max-height: 200px; }
-  textarea#output { min-height: 120px; font-size: 14px; }
-  .batch-list { max-height: 240px; }
+  .batch-name { font-size: 13px; }
 }
