@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Image to Text (OCR)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./assets/styles.css" />
+</head>
+<body>
+  <header class="container">
+    <h1>Image → Text</h1>
+    <p class="sub">Extract text from images right in your browser. No upload to a server.</p>
+  </header>
+
+  <main class="container">
+    <section class="uploader" id="dropzone">
+      <input type="file" id="fileInput" accept="image/*" hidden />
+      <div class="uploader-inner">
+        <img id="preview" alt="Preview" class="preview hidden" />
+        <div class="placeholder" id="placeholder">
+          <div class="icon">📄➡️🔤</div>
+          <div>Drag & drop an image here, or</div>
+          <button id="browseBtn" class="btn" type="button">Browse</button>
+          <div class="hint">PNG, JPG, GIF, BMP, WEBP. Clear, sharp images work best. You can also paste an image with Ctrl+V.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="controls">
+      <div class="row">
+        <label for="langSelect">Language</label>
+        <select id="langSelect">
+          <option value="eng" selected>English (eng)</option>
+        </select>
+      </div>
+      <div class="row">
+        <button id="extractBtn" class="btn primary" type="button" disabled>Extract Text</button>
+        <button id="clearBtn" class="btn" type="button">Clear</button>
+      </div>
+      <div id="progressWrap" class="progress hidden">
+        <div id="progressBar" class="bar" style="width:0%"></div>
+        <span id="progressText" class="label">0%</span>
+      </div>
+    </section>
+
+    <section class="output">
+      <div class="row space-between">
+        <h2>Output</h2>
+        <div>
+          <button id="copyBtn" class="btn" type="button" disabled>Copy</button>
+          <button id="downloadBtn" class="btn" type="button" disabled>Download .txt</button>
+        </div>
+      </div>
+      <textarea id="output" rows="10" placeholder="Recognized text will appear here..." readonly></textarea>
+    </section>
+
+    <hr style="border: none; border-top: 1px solid #2a365b; opacity: .6; margin: 20px 0;">
+
+    <section class="batch">
+      <div class="row space-between">
+        <h2>Batch OCR → PDF</h2>
+        <div class="row">
+          <input type="file" id="batchInput" accept="image/*,application/pdf" multiple hidden />
+          <button id="batchBrowseBtn" class="btn" type="button">Add Photos/PDFs</button>
+          <button id="batchClearBtn" class="btn" type="button" disabled>Clear</button>
+        </div>
+      </div>
+
+      <div class="batch-controls row">
+        <label for="batchLangSelect">Language</label>
+        <select id="batchLangSelect">
+          <option value="eng" selected>English (eng)</option>
+        </select>
+        <button id="batchStartBtn" class="btn primary" type="button" disabled>Start OCR</button>
+        <button id="batchCancelBtn" class="btn" type="button" disabled>Cancel</button>
+        <button id="batchDownloadPdfBtn" class="btn" type="button" disabled>Download PDF</button>
+      </div>
+
+      <div id="batchProgressWrap" class="progress hidden" aria-label="Overall progress">
+        <div id="batchProgressBar" class="bar" style="width:0%"></div>
+        <span id="batchProgressText" class="label">0%</span>
+      </div>
+
+      <div id="batchList" class="batch-list" aria-live="polite"></div>
+      <div class="hint" style="margin-top:8px;color:#7c8aa5">📸 Select 50+ photos at once, or upload a multi-page PDF - each page will be OCR'd into one combined text PDF!</div>
+    </section>
+  </main>
+
+  <footer class="container foot">
+    <small>Runs locally using Tesseract.js. Your image never leaves your device.</small>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/pdfjs-dist@3.11.174/build/pdf.min.js"></script>
+  <script>if(window['pdfjsLib']){ window['pdfjsLib'].GlobalWorkerOptions.workerSrc = 'https://cdn.jsdelivr.net/npm/pdfjs-dist@3.11.174/build/pdf.worker.min.js'; }</script>
+  <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+  <script src="./assets/script.js"></script>
+</body>
+</html>
